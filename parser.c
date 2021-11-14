@@ -228,7 +228,8 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t crt_char)
                 
                 if(my_data.line_count >= AT_COMMAND_MAX_LINES - 1)
                     my_data.write = 1;
-                my_data.line_count++;
+                else
+                    my_data.line_count++;
                 return STATE_MACHINE_NOT_READY;
             }
             else if(crt_char == '\r')

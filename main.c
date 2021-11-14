@@ -25,45 +25,11 @@ int main(int argc, char *argv[])
         character = fgetc(f);
         
         result = at_command_parse(character);
-        //printf("%d\n",my_data.write);
-        /*if(result == 0)
-        {
-            if (character == '\r')
-                printf("CR");
-            else if (character == '\n')
-                printf("LF");
-            else
-                putc(character,stdout);
-            printf(" - %u: Parsing in progress\n",result);
-        }
-        else if(result == 1)
-        {
-            if (character == '\r')
-                printf("CR");
-            else if (character == '\n')
-                printf("LF");
-            else
-                putc(character,stdout);
-            printf(" - %u: Parsing completed -> result OK\n",result);
-            return 0;
-        }
-        else if(result ==2)
-        {
-            if (character == '\r')
-                printf("CR");
-            else if (character == '\n')
-                printf("LF");
-            else
-                putc(character,stdout);
-            printf(" - %u: Parsing stopped -> result NOK\n",result);
-            return 0;
-        }*/
 
         if(result == 1)
         {
-            for (int i = 0; i < AT_COMMAND_MAX_LINES; i++)
+            for (int i = 0; i <= my_data.line_count; i++)
             {
-                printf("%d: ",i);
                 for (int j = 0; j < AT_COMMAND_MAX_LINE_SIZE; j++)
                 {
                     printf("%c",my_data.data[i][j]);
